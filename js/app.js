@@ -1,14 +1,28 @@
 /*
  * Create a list that holds all of your cards
  */
-
-
+const cards = document.querySelectorAll('.card');
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+ const deck = document.querySelector(".deck");
+// Makes the cards toggle from close to open
+
+function togglingCards(clickTarget) {
+    clickTarget.classList.toggle('open');
+    clickTarget.classList.toggle('show');
+}
+
+ deck.addEventListener('click', event => {
+     const clickTarget = event.target;
+     if (clickTarget.classList.contains('card')) {
+        togglingCards(clickTarget);
+     }
+ })
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
