@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-const cards = document.querySelectorAll('.card');
+const listOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle", "fa fa-bomb", "fa fa-bomb"];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -9,20 +9,45 @@ const cards = document.querySelectorAll('.card');
  *   - add each card's HTML to the page
  */
 
- const deck = document.querySelector(".deck");
-// Makes the cards toggle from close to open
+ const cardsContainer = document.querySelector(".deck");
 
-function togglingCards(clickTarget) {
-    clickTarget.classList.toggle('open');
-    clickTarget.classList.toggle('show');
-}
+ let openedCards = [];
 
- deck.addEventListener('click', event => {
-     const clickTarget = event.target;
-     if (clickTarget.classList.contains('card')) {
-        togglingCards(clickTarget);
-     }
- })
+// Loop through and create each card
+ for(let i = 0; i < listOfCards.length; i++) {
+     const card = document.createElement("div");
+     card.classList.add("card");
+     card.innerHTML = "<i class='" + listOfCards[i] + "'</i>";
+     cardsContainer.appendChild(card);
+
+    // Create card click event
+     card.addEventListener("click", function () {
+
+        if(openedCards.length === 1) {
+
+            const currentCard = this;
+            const lastCard = openedCards[0];
+
+            card.classList.add("open", "show");
+            openedCards.push(this);
+
+            // Match check
+            if(currentCard.innerHTML === lastCard.innerHTML) {
+               currentCard.classList.add('match');
+               lastCard.classList.add('match');
+            } else {
+                console.log("Wrong muthafucker")
+            }
+        } else {
+            card.classList.add("open", "show");
+            openedCards.push(this);
+        }
+      
+    })
+ }
+
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -38,6 +63,8 @@ function shuffle(array) {
 
     return array;
 }
+
+
 
 
 /*
