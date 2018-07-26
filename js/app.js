@@ -12,6 +12,7 @@ const listOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
  const cardsContainer = document.querySelector(".deck");
 
  let openedCards = [];
+ let matchedCards = [];
 
 // Loop through and create each card
  for(let i = 0; i < listOfCards.length; i++) {
@@ -23,10 +24,10 @@ const listOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
     // Create card click event
      card.addEventListener("click", function () {
 
-        if(openedCards.length === 1) {
+        const currentCard = this;
+        const lastCard = openedCards[0];
 
-            const currentCard = this;
-            const lastCard = openedCards[0];
+        if(openedCards.length === 1) {
 
             card.classList.add("open", "show");
             openedCards.push(this);
@@ -35,12 +36,21 @@ const listOfCards = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "f
             if(currentCard.innerHTML === lastCard.innerHTML) {
                currentCard.classList.add('match');
                lastCard.classList.add('match');
+               // "Resets the conditional for additional matches"
+               matchedCards.push(currentCard, lastCard);
+               openedCards = [];
+               // Check for game over
+               gameOver();
             } else {
-                console.log("Wrong muthafucker")
+                currentCard.classList.remove("open", "show");
+                lastCard.classList.remove("open", "show");
+                // Reset the conditional for additional non-matches
+                openedCards = [];
             }
         } else {
-            card.classList.add("open", "show");
+            currentCard.classList.add("open", "show");
             openedCards.push(this);
+           
         }
       
     })
@@ -77,3 +87,10 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+function gameOver() {
+    if(matchedCards.length === listOfCards.length) {
+        alert("GOOD JOB!");
+    }
+}
+
