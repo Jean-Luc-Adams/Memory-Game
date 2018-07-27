@@ -65,6 +65,7 @@ function compareCards(firstCard, lastCard) {
             // Reset the conditional for additional non-matches
             openedCards = [];
         }, 750);
+        
     }
     // Increase the move counter per match or mismatch
     moveCounter();
@@ -76,27 +77,45 @@ function gameOver() {
         alert("GOOD JOB!");
     }
 }
+// Star Rating
+const stars = document.querySelector(".stars");
+
+function rating() {
+    switch (moves) {
+        case 22:
+            stars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+        break;
+        case 17:
+            stars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+        break;
+        case 12: 
+            stars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+    }
+}
 
 // Move counter 
 const moveNumber = document.querySelector(".moves");
-let moves = 0; 
+let moves = 0;
+
 function moveCounter() {
     moves++;
     moveNumber.innerHTML = moves;
+    //Star rating from 1 to 3
+    rating();
 }
 
 //Wanna try again???
 const restartButton = document.querySelector(".restart");
-restartButton.addEventListener('click', function() {
+restartButton.addEventListener('click', function () {
     cardsContainer.innerHTML = "";
     startGame();
-    matchedCards =  [];
+    matchedCards = [];
 })
 
 startGame();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(listOfCards) {
+function shuffle(array) {
     var currentIndex = array.length,
         temporaryValue, randomIndex;
 
