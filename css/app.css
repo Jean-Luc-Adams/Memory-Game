@@ -60,7 +60,7 @@ h1 {
     font-size: 0;
     color: #ffffff;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: crosshair;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +83,10 @@ h1 {
     font-size: 33px;
 }
 
+/* Prevents an already opened card from being selected again */
+.deck .card.disabled {
+    pointer-events: none;
+}
 /*
  * Styles for the Score Panel
  */
