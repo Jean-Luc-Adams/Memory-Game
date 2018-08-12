@@ -6,12 +6,19 @@
 const deck = document.querySelector('.deck');
 let toggledCards = [];
 let moves = 0;
+let clockOff = true;
+let time = 0;
+
 
 deck.addEventListener('click', event => {
     const clickTarget = event.target;
     if (isValid(clickTarget)) {
         toggleCard(clickTarget);
         addToggleCard(clickTarget);
+        if (clockOff) {
+            startTimer();
+            clockOff = false;
+        }
         if (toggledCards.length === 2) {
             checkForMatching(clickTarget);
             addMove();
@@ -74,6 +81,25 @@ function removeStar() {
             star.style.display = "none";
             break;
         }
+    }
+}
+
+function startTimer() {
+    let timerTime = setInterval(() => {
+        time++;
+        displayTime();
+    }, 1000);
+    
+}
+
+function displayTime() {
+    const timer = document.querySelector('.timer');
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    if (seconds < 10) {
+        timer.innerHTML = `${minutes}:0${seconds}`;
+    } else {
+        timer.innerHTML = `${minutes}:${seconds}`;
     }
 }
 
