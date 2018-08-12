@@ -18,9 +18,11 @@ body {
 
 body {
     padding-top: 1.5rem;
-    background: #ffffff url('../img/geometry2.png');
-    /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    background: url('../img/confetti.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: 'Jua', sans-serif;
+    color: white;
 }
 
 .container {
@@ -31,7 +33,7 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Jua', sans-serif;
     font-weight: 300;
 }
 
@@ -42,7 +44,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #02ccbb52 0%, #aa7ecd6e 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -86,11 +88,6 @@ h1 {
     animation-fill-mode: both;
 }
 
-.deck .card.mismatch {
-    animation-name: wobble;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
 
 /*
  * Styles for the Score Panel
@@ -129,7 +126,8 @@ Styles for the Win Modal
     font-family: 'Jua', sans-serif;
 }
 
-.modal-title, h4 {
+.modal-title,
+h4 {
     color: rgb(83, 212, 83);
 }
 
@@ -159,46 +157,54 @@ Styles for the Win Modal
     background: white;
     border-radius: 10px;
     transform: translate(-50%, -65%);
- }
+}
 
- .modal-footer {
-     display: flex;
-     justify-content: space-around;
-     padding-top: 1.5rem;
-     padding-bottom: 1.5rem;
- }
+.modal-footer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
 
- .modal-btn {
-     width: 60px;
-     height: 45px;
-     border-radius: 10px;
-     padding: 0.3rem;
-     cursor: pointer;
- }
+.modal-btn {
+    width: 60px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 0.3rem;
+    cursor: pointer;
+}
 
- .modal-close {
-     font-size: 2rem;
- }
+.modal-retry {
+    background-color: rgb(83, 212, 83);
+}
 
- h4 {
-     text-align: center;
- }
+.modal-close {
+    font-size: 2rem;
+}
 
- .modal-stats {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     padding: 0.5rem 1rem 1.5rem 1rem;
-     border-bottom: 1px solid darkgrey;
- }
+h4 {
+    text-align: center;
+}
 
- .modal-stats span {
-     font-size: 1.5rem;
- }
+.modal-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem 1.5rem 1rem;
+    border-bottom: 1px solid darkgrey;
+}
 
+.modal-stats span {
+    font-size: 1.5rem;
+}
+
+
+.hide {
+    display: none;
+}
 
 /*
-Animations for the matching and mismatching
+Animations for the matching
 */
 
 @keyframes rubberBand {
@@ -231,34 +237,3 @@ Animations for the matching and mismatching
         transform: scale3d(1, 1, 1);
     }
 }
-
-    @keyframes wobble {
-    0% {
-    -webkit-transform: none;
-    transform: none;
-    }
-    15% {
-    -webkit-transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
-    }
-    30% {
-    -webkit-transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
-    }
-    45% {
-    -webkit-transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
-    }
-    60% {
-    -webkit-transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
-    }
-    75% {
-    -webkit-transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
-    }
-    100% {
-    -webkit-transform: none;
-    transform: none;
-    }
-    } 

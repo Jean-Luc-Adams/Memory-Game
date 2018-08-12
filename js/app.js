@@ -115,7 +115,7 @@ function stopTimer() {
     clearInterval(timerTime);
 }
 
-document.querySelector('.restart').addEventListener('click', replayGame);
+document.querySelector('.restart').addEventListener('click', resetGame);
 // Determines when the game is completed
 function gameOver() {
     stopTimer();
