@@ -87,8 +87,6 @@ h1 {
 }
 
 .deck .card.mismatch {
-    background: rgba(241, 56, 56, 0.795);
-    font-size: 33px;
     animation-name: wobble;
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -126,22 +124,78 @@ Styles for the Win Modal
 */
 
 .modal-body,
-.modal-footer .btn,
+.modal-btn,
 .modal-title {
     font-family: 'Jua', sans-serif;
 }
 
-.modal-title {
+.modal-title, h4 {
     color: rgb(83, 212, 83);
-    padding-left: 4rem;
+}
+
+.modal-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.420);
+    background-size: cover;
+}
+
+.modal-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid darkgray;
 }
 
 .modal-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-}
+    position: relative;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    background: white;
+    border-radius: 10px;
+    transform: translate(-50%, -65%);
+ }
+
+ .modal-footer {
+     display: flex;
+     justify-content: space-around;
+     padding-top: 1.5rem;
+     padding-bottom: 1.5rem;
+ }
+
+ .modal-btn {
+     width: 60px;
+     height: 45px;
+     border-radius: 10px;
+     padding: 0.3rem;
+     cursor: pointer;
+ }
+
+ .modal-close {
+     font-size: 2rem;
+ }
+
+ h4 {
+     text-align: center;
+ }
+
+ .modal-stats {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 0.5rem 1rem 1.5rem 1rem;
+     border-bottom: 1px solid darkgrey;
+ }
+
+ .modal-stats span {
+     font-size: 1.5rem;
+ }
+
 
 /*
 Animations for the matching and mismatching
