@@ -8,6 +8,7 @@ let toggledCards = [];
 let moves = 0;
 let clockOff = true;
 let time = 0;
+let timerTime;
 
 
 deck.addEventListener('click', event => {
@@ -55,10 +56,12 @@ function checkForMatching() {
         toggledCards = [];
     } else {
         setTimeout(() => {
+            toggledCards[0].classList.toggle('mismatch');
+            toggledCards[1].classList.toggle('mismatch');
             toggleCard(toggledCards[0]);
             toggleCard(toggledCards[1]);
             toggledCards = [];
-        }, 1000);
+        }, 500);
     }
 }
 
@@ -85,7 +88,7 @@ function removeStar() {
 }
 
 function startTimer() {
-    let timerTime = setInterval(() => {
+    timerTime = setInterval(() => {
         time++;
         displayTime();
     }, 1000);
@@ -103,7 +106,24 @@ function displayTime() {
     }
 }
 
+function stopTimer() {
+    clearInterval(timerTime);
+}
 
+function writeWinStats() {
+    const timeStat = document.querySelector('.modal-time');
+    const clockTime = document.querySelector('.timer').innerHTML;
+    const movesStat = document.querySelector('.modal-moves');
+    const starsStat = document.querySelector('.modal-stars');
+    const stars = getStars();
+
+    timeStat.innerHTML = `Time = ${clockTime}`;
+    movesStat.innerHTML = `Moves = ${moves}`;
+}
+
+$('#myModal').on('show.bs.modal', function (event) {
+   writeWinStats();
+  })
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
