@@ -127,7 +127,7 @@ function gameOver() {
 // Displays the game stats
 function writeWinStats() {
     const timeStat = document.querySelector('.modal-time'),
-          clockTime = document.querySelector('.timer').innerHTML;
+          clockTime = document.querySelector('.timer').innerHTML,
           movesStat = document.querySelector('.modal-moves'),
           starsStat = document.querySelector('.modal-stars'),
           stars = getStars();
