@@ -33,7 +33,6 @@ body {
 }
 
 h1 {
-    font-family: 'Jua', sans-serif;
     font-weight: 300;
 }
 
@@ -120,11 +119,6 @@ h1 {
 Styles for the Win Modal
 */
 
-.modal-body,
-.modal-btn,
-.modal-title {
-    font-family: 'Jua', sans-serif;
-}
 
 .modal-title,
 h4 {
@@ -157,6 +151,7 @@ h4 {
     background: white;
     border-radius: 10px;
     transform: translate(-50%, -65%);
+    color: darkgrey;
 }
 
 .modal-footer {
@@ -172,6 +167,7 @@ h4 {
     border-radius: 10px;
     padding: 0.3rem;
     cursor: pointer;
+    font-family: 'Jua', sans-serif;
 }
 
 .modal-retry {
