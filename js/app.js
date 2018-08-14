@@ -1,13 +1,14 @@
 //Global Scope Variables
 
-const deck = document.querySelector('.deck');
-let toggledCards = [];
-let moves = 0;
-let clockOff = true;
-let time = 0;
-let timerTime;
-let matchedPairs = 0;
-const totalMatchPairs = 8;
+
+let toggledCards = [],
+    moves = 0,
+    clockOff = true,
+    time = 0
+    matchedPairs = 0;
+    timerTime = [];
+const deck = document.querySelector('.deck'),
+    totalMatchPairs = 8;
 
 // Click event
 deck.addEventListener('click', event => {
@@ -97,13 +98,13 @@ function startTimer() {
         time++;
         displayTime();
     }, 1000);
-    
+
 }
 
 function displayTime() {
-    const timer = document.querySelector('.timer');
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
+    const timer = document.querySelector('.timer'),
+          minutes = Math.floor(time / 60),
+          seconds = Math.floor(time % 60);
     if (seconds < 10) {
         timer.innerHTML = `${minutes}:0${seconds}`;
     } else {
@@ -125,12 +126,11 @@ function gameOver() {
 
 // Displays the game stats
 function writeWinStats() {
-    const timeStat = document.querySelector('.modal-time');
-    const clockTime = document.querySelector('.timer').innerHTML;
-    const movesStat = document.querySelector('.modal-moves');
-    const starsStat = document.querySelector('.modal-stars');
-    const stars = getStars();
-
+    const timeStat = document.querySelector('.modal-time'),
+          clockTime = document.querySelector('.timer').innerHTML;
+          movesStat = document.querySelector('.modal-moves'),
+          starsStat = document.querySelector('.modal-stars'),
+          stars = getStars();
     timeStat.innerHTML = `<i class="far fa-clock"></i> = ${clockTime}`;
     movesStat.innerHTML = `Moves = ${moves}`;
     starsStat.innerHTML = `Star Rating = ${stars}`;
@@ -166,11 +166,12 @@ document.querySelector('.modal-retry').addEventListener('click', () => {
 
 // Resetting the Game
 function resetGame() {
-  resetTimer();
-  resetMoveCounter();
-  resetStarRating();
-  resetCards();
-  shuffleTheDeck();
+    resetTimer();
+    resetMoveCounter();
+    resetStarRating();
+    toggledCards = [];
+    resetCards();
+    shuffleTheDeck();
 }
 
 function replayGame() {
@@ -207,7 +208,7 @@ function resetCards() {
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    var currentIndex = array.length,
+    let currentIndex = array.length,
         temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
@@ -222,13 +223,11 @@ function shuffle(array) {
 
 // Shuffles the cards upon restart or refreshing the screen
 function shuffleTheDeck() {
-    const cardsShuffle = Array.from(document.querySelectorAll('.deck li'));
-    const shuffledCards = shuffle(cardsShuffle);
+    const cardsShuffle = Array.from(document.querySelectorAll('.deck li')),
+          shuffledCards = shuffle(cardsShuffle);
     for (card of shuffledCards) {
         deck.appendChild(card);
     }
 }
 
 shuffleTheDeck();
-
- 
