@@ -1,24 +1,16 @@
 # Memory Game Project
 
-## Table of Contents
+## Important Notes
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* Made as part of Udacity's Front-End Web Developer Nanodegree Program
+* Uses starter code provided by Udacity to assist with HTML, CSS, and shuffle function
+* Has the Google font of `Jua` for font styling purposes.
+* Uses the `font awesome` toolkit (ver. 5.2) for the icons for the score board and the tiles.
 
-## Instructions
+## How to Play
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+The user will click on the tiles for matching pairs until all 8 pairs are found. Based on many moves you make, your star rating can vary from 1 to 3. There will be a modal that shows the results of the game. 
 
 ## My Notes
 
-I will occasionally update this project whenever my skills with JavaScript increase. It might seem done for now, but I will always update the game every chance I get!!!
+I will occasionally update this project whenever my skills with JavaScript and CSS animation skills increase. It might seem done for now, but I will always update the game every chance I get!!!
